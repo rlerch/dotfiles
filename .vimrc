@@ -37,11 +37,13 @@ endif
 set bs=2 " needed on Windows for backspace to work properly
 
 " tab settings ->
+" RJMetrics uses tabs, not spaces
 set autoindent " Uses indent from current line as indent for new line
-set expandtab " Expands tab into spaces
-set smarttab " Allows deleting of full tab at beginning of lines when it's turned into spaces
-set shiftwidth=4
-set softtabstop=4
+set tabstop=4
+" set expandtab " Expands tab into spaces
+" set smarttab " Allows deleting of full tab at beginning of lines when it's turned into spaces
+set shiftwidth=4 " # spaces to use for auto-indent
+" set softtabstop=4
 " <-
 
 set visualbell " Stops the 'ding' heard all the time
