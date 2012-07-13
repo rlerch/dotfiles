@@ -45,6 +45,10 @@ set shiftwidth=4 " # spaces to use for auto-indent
 " set softtabstop=4
 " <-
 
+" Visual whitespace
+set list
+set listchars=tab:>\ ,trail:. 
+
 set visualbell " Stops the 'ding' heard all the time
 
 " searching
