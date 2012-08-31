@@ -170,3 +170,6 @@ alias lh='ls -a | egrep "^\."'
 # git commands
 alias pl-br="git pull origin \`git br\`"
 alias ps-br="git push origin \`git br\`"
+
+# work commands
+alias unit="phpunit --bootstrap=test/bootstrap.php"
