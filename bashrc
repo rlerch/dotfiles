@@ -167,9 +167,7 @@ alias cd..="echo \"I think you meant 'cd ..'.  Here, let me take care of that fo
 # use lh to ls *only* hidden files
 alias lh='ls -a | egrep "^\."'
 
-# git commands
-alias pl-br="git pull origin \`git br\`"
-alias ps-br="git push origin \`git br\`"
+alias gist="git st"
 
 # work commands
 alias unit="phpunit --bootstrap=test/bootstrap.php"
