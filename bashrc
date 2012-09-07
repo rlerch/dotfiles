@@ -90,9 +90,9 @@ if [ -x /usr/bin/dircolors ]; then
     #alias dir='dir --color=auto'
     #alias vdir='vdir --color=auto'
 
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
+    alias grep='grep --color=auto -r --exclude=*.swp --exclude=tags'
+    alias fgrep='fgrep --color=auto -r --exclude=*.swp --exclude=tags'
+    alias egrep='egrep --color=auto -r --exclude=*.swp --exclude=tags'
 fi
 
 # some more ls aliases
