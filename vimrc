@@ -92,7 +92,7 @@ set complete-=t,i
 
 " other stuff -----------------------------------------------------------------
 " From http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns/235970#235970
-set colorcolumn=80
+set colorcolumn=110
 
 " set cursorline
 " highlight CursorLine guibg=#FFE0F7
