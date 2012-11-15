@@ -20,7 +20,8 @@ xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
                                   }
 main = do
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
-    xmproc <- spawnPipe "xmobar --screen=0"
+    xmprocLeft <- spawnPipe "xmobar --screen=0"
+    xmprocRight <- spawnPipe "xmobar --screen=1"
     xmonad $ defaultConfig
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
@@ -34,5 +35,5 @@ main = do
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , logHook = dynamicLogWithPP $ xmobarPPOptions xmproc
+        , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft) >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
         }
