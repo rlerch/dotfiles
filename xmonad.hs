@@ -10,12 +10,17 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe,runProcessWithInput)
-import XMonad.Util.EZConfig(additionalKeys)
 import System.IO
 
+xmobarPPOptions :: Handle -> PP
+xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
+                                  , ppTitle = xmobarColor "green" "" . shorten 50
+                                  , ppHidden = xmobarColor "lightgrey" ""
+                                  , ppHiddenNoWindows = xmobarColor "grey" ""
+                                  }
 main = do
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
-    xmproc <- spawnPipe "xmobar"
+    xmproc <- spawnPipe "xmobar --screen=0"
     xmonad $ defaultConfig
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
@@ -29,10 +34,5 @@ main = do
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
-        , logHook = dynamicLogWithPP xmobarPP
-                        { ppOutput = hPutStrLn xmproc
-                        , ppTitle = xmobarColor "green" "" . shorten 50
-                        , ppHidden = xmobarColor "lightgrey" ""
-                        , ppHiddenNoWindows = xmobarColor "grey" ""
-                        }
+        , logHook = dynamicLogWithPP $ xmobarPPOptions xmproc
         }
