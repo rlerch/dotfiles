@@ -36,22 +36,47 @@
 
 call pathogen#infect()
 
+" change <leader> to a comma
+let mapleader = ","
+
 " basic settings --------------------------------------------------------------
 set nocompatible " not vi-compatible
 set rnu " shows relative line numbers
 set bs=2 " needed on Windows for backspace to work properly
 
-" tab settings ->
+" tab settings -------------------------------------------------------------->
 " RJMetrics uses tabs, not spaces
 set autoindent " Uses indent from current line as indent for new line
-set tabstop=4
-" set expandtab " Expands tab into spaces
-" set smarttab " Allows deleting of full tab at beginning of lines when it's turned into spaces
-set shiftwidth=4 " # spaces to use for auto-indent
-" set softtabstop=4
-" <-
+" set expandtab " Inserts spaces instead of actual tabs
+set shiftwidth=4 " The number of columns to use when auto-indenting lines
+set tabstop=4 " Determines the number of columns to use when showing actual
+              " tab characters
+" set softtabstop=4 " Determines the number of columns that will be inserted or
+                  " deleted when you hit the tab key. Will use a mixture of
+                  " spaces and tabs when expandtab is not set.
+set smarttab " Uses the value of shiftwidth when inserting or deleting tabs
+             " at the beginnings of lines (in more practical terms, it allows
+             " you to treat tabs that were expanded into spaces as tabs, but
+             " only when they are at the beginning of a line).
+             " When using softtabstop and expand tab, smarttab doesn't need
+             " to be used
+" From my understand, the fundamental difference between tabstop and
+" softtabstop is that tabstop determines the behavior of actual tab characters
+" (<Tab>). If neither expandtab nor softtabstop are set, then using the tab
+" key will just insert the <Tab> character and use the value of tabstop to
+" determine how wide the tab will be.
+" On the other hand, softtabstop takes over when the tab key on your keyboard
+" is pressed. If your softtabstop is set to 4 and tabstop is set to 8, then
+" hitting tab will insert 4 columns for you (the value of softtabstop).
+" However, since this isn't enough to be a tab character, it will use spaces
+" to achieve those 4 columns.
 
-set laststatus=2
+" mapping to toggle spaces/tabs. This should work fine, but I haven't figured
+" out under what circumstances behaviors will be exactly the same.
+nmap <Leader>t :set expandtab!<CR>
+" <---------------------------------------------------------------------------
+
+set laststatus=2 " Ensures that if only 1 window is visible, the status bar will show
 
 set hidden " only hide buffers when switching (don't close them which erases undo)
 
@@ -71,9 +96,6 @@ set mouse=a " enables mouse use in all modes
 syntax enable " enables syntax highlighting
 filetype on " enables filetype detection
 filetype plugin on
-
-" change <leader> to a comma
-let mapleader = ","
 
 " jump to last position on previous close
 autocmd BufReadPost *
