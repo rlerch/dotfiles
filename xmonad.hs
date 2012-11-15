@@ -17,7 +17,17 @@ main = do
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
     xmproc <- spawnPipe "xmobar"
     xmonad $ defaultConfig
-        { manageHook = manageDocks <+> manageHook defaultConfig
+        { workspaces = [ "1:chrome-work"
+                       , "2:chrome-home"
+                       , "3:vim"
+                       , "4:dotfiles"
+                       , "5:support-workspace"
+                       , "6"
+                       , "7"
+                       , "8"
+                       , "9"
+                       ]
+        , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts  $  layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
                         { ppOutput = hPutStrLn xmproc
