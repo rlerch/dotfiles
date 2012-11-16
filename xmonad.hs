@@ -28,8 +28,10 @@ layout = avoidStruts
     ||| Mirror (tallLayout)
     ||| Full
     )
+    ||| fullLayout
     where
         tallLayout = Tall 1 (3/100) (1/2)
+        fullLayout = noBorders $ fullscreenFull Full
 
 main = do
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
