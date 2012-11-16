@@ -36,7 +36,7 @@ main = do
                        , "2:chrome-home"
                        , "3:vim"
                        , "4:dotfiles"
-                       , "5:support-workspace"
+                       , "5:local-rjm"
                        , "6"
                        , "7"
                        , "8"
