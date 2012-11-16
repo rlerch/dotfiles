@@ -13,6 +13,7 @@ import XMonad.Util.Run(spawnPipe,runProcessWithInput)
 import XMonad.Layout
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
+import XMonad.Layout.MagicFocus
 import System.IO
 
 xmobarPPOptions :: Handle -> PP
@@ -22,7 +23,13 @@ xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
                                   , ppHiddenNoWindows = xmobarColor "grey" ""
                                   }
 
-layout = avoidStruts ( tallLayout ||| Mirror (tallLayout) ||| Full ) ||| fullLayout
+layout = avoidStruts
+    (   tallLayout
+    ||| Mirror (tallLayout)
+    ||| magicFocus (tallLayout)
+    ||| Full
+    )
+    ||| fullLayout
     where
         tallLayout = Tall 1 (3/100) (1/2)
         fullLayout = noBorders $ fullscreenFull Full
