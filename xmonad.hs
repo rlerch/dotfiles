@@ -39,12 +39,12 @@ main = do
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
                        , "3:vim"
-                       , "4:dotfiles"
-                       , "5:local-rjm"
+                       , "4"
+                       , "5"
                        , "6"
                        , "7"
                        , "8"
-                       , "9"
+                       , "9:dotfiles"
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = layout
