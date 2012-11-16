@@ -52,4 +52,5 @@ main = do
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = layout
         , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft) >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
+        , focusFollowsMouse = False
         }
