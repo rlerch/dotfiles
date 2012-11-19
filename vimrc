@@ -163,8 +163,7 @@ nmap <Leader>w :%s/\s\+$//<CR>
 
 " phpfolding ------------------------------------------------------------------
 map <F5> <Esc>:EnableFastPHPFolds<Cr>
-map <F6> <Esc>:EnablePHPFolds<Cr>
-map <F7> <Esc>:DisablePHPFolds<Cr>
+map <F6> <Esc>:DisablePHPFolds<Cr>
 
 " Tips for getting header/source switch came from
 " http://vim.wikia.com/wiki/Easily_switch_between_source_and_header_file
@@ -211,7 +210,7 @@ let g:ctrlp_regexp = 1 " default to regexp search
 let Tlist_Use_Right_Window = 1 " place taglist window on the right
 let Tlist_Display_Prototype = 1 " show prototypes instead of tags
 " mapping to open taglist
-nmap <F6> :TlistToggle<CR>
+nmap <F7> :TlistToggle<CR>
 
 " snipMate--------------------------------------------------------------------
 " be able to reload snippets from:
