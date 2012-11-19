@@ -40,7 +40,7 @@ main = do
     xmonad $ defaultConfig
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
-                       , "3:vim"
+                       , "3:vm"
                        , "4"
                        , "5"
                        , "6"
