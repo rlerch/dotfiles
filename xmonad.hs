@@ -10,6 +10,7 @@ import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Util.Run(spawnPipe,runProcessWithInput)
+import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Layout
 import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
@@ -53,3 +54,6 @@ main = do
         , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft) >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
         , focusFollowsMouse = False
         }
+        `additionalKeysP`
+        [ ("M-v", spawn "gnome-terminal -x r vm")
+        ]
