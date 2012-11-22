@@ -9,11 +9,7 @@
 import XMonad
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
-<<<<<<< HEAD
 import XMonad.Util.Run(spawnPipe,runProcessWithInput)
-=======
-import XMonad.Util.Run(spawnPipe)
->>>>>>> master
 import XMonad.Util.EZConfig(additionalKeysP)
 import XMonad.Layout
 import XMonad.Layout.Fullscreen
