@@ -55,6 +55,6 @@ main = do
         , focusFollowsMouse = False
         }
         `additionalKeysP`
-        [
-          ("M-v", spawn "gnome-terminal -x r vm")
+        [ ("M-S-s", spawn "gksudo shutdown -P now")
+        , ("M-v", spawn "gnome-terminal -x r vm")
         ]
