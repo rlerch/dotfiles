@@ -41,6 +41,9 @@ layout = avoidStruts
         tallLayout = Tall 1 (3/100) (1/2)
         fullLayout = noBorders $ fullscreenFull Full
 
+pianobarCmd :: String -> String
+pianobarCmd cmd = "echo -n " ++ cmd ++ " > ~/.config/pianobar/ctl"
+
 main = do
     dbproc <- spawnPipe "dropbox start"
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
@@ -64,5 +67,8 @@ main = do
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
-        , ("M-<D>", spawn "echo -n p > ~/.config/pianobar/ctl")
+        , ("M-<KP_Insert>", spawn $ pianobarCmd "p") -- keypad 0 = pause
+        , ("M-<KP_Right>", spawn $ pianobarCmd "n") -- keypad 6 = next
+        , ("M-<KP_Up>", spawn $ pianobarCmd "+") -- keypad 8 = thumbs up
+        , ("M-<KP_Down>", spawn $pianobarCmd "-") -- keypad 2 = thumbs down
         ]
