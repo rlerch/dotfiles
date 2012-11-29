@@ -20,8 +20,8 @@ import System.IO
 xmobarPPOptions :: Handle -> PP
 xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
                                   , ppTitle = xmobarColor "green" "" . shorten 50
-                                  , ppHidden = xmobarColor "lightgrey" ""
-                                  , ppHiddenNoWindows = xmobarColor "grey" ""
+                                  , ppHidden = xmobarColor "grey" ""
+                                  , ppHiddenNoWindows = xmobarColor "blue" ""
                                   }
 
 layout = avoidStruts
@@ -35,6 +35,7 @@ layout = avoidStruts
         fullLayout = noBorders $ fullscreenFull Full
 
 main = do
+    dbproc <- spawnPipe "dropbox start"
     runProcessWithInput "xrandr" ["--auto", "--output", "VGA1", "--left-of", "HDMI1"] ""
     xmprocLeft <- spawnPipe "xmobar --screen=0"
     xmprocRight <- spawnPipe "xmobar --screen=1"
