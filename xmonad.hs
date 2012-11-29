@@ -17,9 +17,16 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import System.IO
 
+surround :: String -> String -> String
+surround extra text = extra ++ text ++ extra
+
+yellow = xmobarColor "yellow" ""
+
 xmobarPPOptions :: Handle -> PP
 xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
                                   , ppTitle = xmobarColor "green" "" . shorten 50
+                                  , ppCurrent = yellow . (surround "**")
+                                  , ppVisible = yellow
                                   , ppHidden = xmobarColor "grey" ""
                                   , ppHiddenNoWindows = xmobarColor "blue" ""
                                   }
@@ -43,8 +50,8 @@ main = do
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
                        , "3:vm"
-                       , "4"
-                       , "5"
+                       , "4:testing"
+                       , "5:review"
                        , "6"
                        , "7"
                        , "8:time-tracking"
@@ -57,5 +64,6 @@ main = do
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
-        , ("M-v", spawn "gnome-terminal -x r vm")
+        , ("M-v", spawn "gnome-terminal -x ssh rjmdash@vmdev")
+        , ("M-S-v", spawn "gnome-terminal -x ssh rjmdash@vmdev -t 'cd rjm && vim'")
         ]
