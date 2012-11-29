@@ -64,6 +64,5 @@ main = do
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
-        , ("M-v", spawn "gnome-terminal -x ssh rjmdash@vmdev")
-        , ("M-S-v", spawn "gnome-terminal -x ssh rjmdash@vmdev -t 'cd rjm && vim'")
+        , ("M-<D>", spawn "echo -n p > ~/.config/pianobar/ctl")
         ]
