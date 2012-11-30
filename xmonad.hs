@@ -67,6 +67,7 @@ main = do
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
+        , ("M-s", spawn "gnome-screensaver-command -l")
         , ("M-v", spawn "gnome-terminal -x ssh rjmdash@vmdev")
         , ("M-S-v", spawn "gnome-terminal -x ssh rjmdash@vmdev -t 'cd rjm && vim'")
         , ("M-<KP_Insert>", spawn $ pianobarCmd "p") -- keypad 0 = pause
