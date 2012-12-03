@@ -57,7 +57,7 @@ main = do
                        , "5:review"
                        , "6"
                        , "7"
-                       , "8:time-tracking"
+                       , "8"
                        , "9:dotfiles"
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
