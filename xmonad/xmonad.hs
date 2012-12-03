@@ -20,15 +20,15 @@ import System.IO
 surround :: String -> String -> String
 surround extra text = extra ++ text ++ extra
 
-yellow = xmobarColor "yellow" ""
+yellow = xmobarColor "#F7F383" ""
 
 xmobarPPOptions :: Handle -> PP
 xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
-                                  , ppTitle = xmobarColor "green" "" . shorten 50
+                                  , ppTitle = xmobarColor "#7DF58F" "" . shorten 50
                                   , ppCurrent = yellow . (surround "**")
                                   , ppVisible = yellow
                                   , ppHidden = xmobarColor "grey" ""
-                                  , ppHiddenNoWindows = xmobarColor "blue" ""
+                                  , ppHiddenNoWindows = xmobarColor "#65BBF7" ""
                                   }
 
 layout = avoidStruts
