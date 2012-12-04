@@ -51,10 +51,10 @@ main = do
                        , "2:chrome-home"
                        , "3:vm"
                        , "4:testing"
-                       , "5:review"
-                       , "6"
-                       , "7"
-                       , "8"
+                       , "5:"
+                       , "6:"
+                       , "7:"
+                       , "8:"
                        , "9:dotfiles"
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
