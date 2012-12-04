@@ -8,27 +8,29 @@
 "
 "   Simple plugins (one script in the plugin/ dir)
 "   * a.vim           Easy switching between header and source files
+"   * grep
 "   * MRU             Remembers recently visited files to open quickly
-"   * rename          Allows renaming of files by doing :rename <file>
+"   * Rename          Allows renaming of files by doing :Rename <file>
 "   * pathogen        Plugin path manager (for bundling plugins)
-"   * visualmark      Visualize marks (type 'mm')
 "
 "   Simple ftplugins (one script in the ftplugin/ dir)
 "   * nsh
-"   * phpfolding
+"   * php_folding
 "   * xml             Contains function for pretty XML printing
+"   * php             TODO remove
 "
 "   Bundled plugins
 "   * bufexplorer     Buffer explorer
 "   * clojure         Clojure highlighting, indenting, etc.
+"   * coffee-script   Coffee highlight, indenting, etc.
 "   * CtrlP           Fuzzy Finder
 "   * delimitMate     Auto complete brackets, etc.
 "   * fugitive        Git wrapper
 "   * NERDTree        Provides a way to peruse directories
 "   * OmniCppComplete C++ Omni-Complete
+"   * powerline       Better status bar
 "   * protodef        Creates skeleton C++ source files based on header files
 "   * racket          Highlight, indenting, etc. for Racket language
-"   * snipMate        Snippets!
 "   * supertab
 "   * surround        Surround text with tags, quotes, etc.
 "   * taglist         CTags explorer for viewing all tags in open files
@@ -220,17 +222,3 @@ let Tlist_Use_Right_Window = 1 " place taglist window on the right
 let Tlist_Display_Prototype = 1 " show prototypes instead of tags
 " mapping to open taglist
 nmap <F7> :TlistToggle<CR>
-
-" snipMate--------------------------------------------------------------------
-" be able to reload snippets from:
-" http://code.google.com/p/snipmate/issues/detail?id=67
-function! ReloadSnippets(snippets_dir, ft)
-    if strlen(a:ft) == 0
-        let filetype = "_"
-    else
-        let filetype = a:ft
-    endif
-    call ResetSnippets()
-    call GetSnippets(a:snippets_dir, filetype)
-endfunction
-nmap <Leader>m :call ReloadSnippets(snippets_dir, &filetype)<CR>
