@@ -49,12 +49,12 @@ main = do
     xmonad $ defaultConfig
         { workspaces = [ "1:chrome-work"
                        , "2:chrome-home"
-                       , "3:vm"
-                       , "4:testing"
-                       , "5:"
-                       , "6:"
+                       , "3:chrome-test"
+                       , "4:"
+                       , "5:vm-shell"
+                       , "6:vm-vim"
                        , "7:"
-                       , "8:"
+                       , "8:pianobar"
                        , "9:dotfiles"
                        ]
         , manageHook = manageDocks <+> manageHook defaultConfig
