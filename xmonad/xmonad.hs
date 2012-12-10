@@ -64,6 +64,8 @@ main = do
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
+
+        -- BEGIN work branch shortcuts
         , ("M-s", spawn "gnome-screensaver-command -l")
         , ("M-v", spawn "gnome-terminal -x ssh rjmdash@vmdev")
         , ("M-S-v", spawn "gnome-terminal -x ssh rjmdash@vmdev -t 'cd rjm && vim'")
@@ -75,4 +77,6 @@ main = do
         , ("M-<KP_Down>",     spawn $ pianobarCmd "-") -- keypad 2 = thumbs down
         , ("M-<KP_Add>",      spawn $ pianobarCmd ")") -- keypad + = increase volume
         , ("M-<KP_Subtract>", spawn $ pianobarCmd "(") -- keypad - = decrease volume
+        -- END work branch shortcuts
+
         ]
