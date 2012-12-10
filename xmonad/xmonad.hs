@@ -39,7 +39,7 @@ layout = avoidStruts
         fullLayout = noBorders $ fullscreenFull Full
 
 pianobarCmd :: String -> String
-pianobarCmd cmd = "echo -n '" ++ cmd ++ "' > ~/.config/pianobar/ctl"
+pianobarCmd cmd = "pianobar-ctl '" ++ cmd ++ "'"
 
 main = do
     dbproc <- spawnPipe "dropbox start"
@@ -67,6 +67,8 @@ main = do
         , ("M-s", spawn "gnome-screensaver-command -l")
         , ("M-v", spawn "gnome-terminal -x ssh rjmdash@vmdev")
         , ("M-S-v", spawn "gnome-terminal -x ssh rjmdash@vmdev -t 'cd rjm && vim'")
+        , ("M-<KP_Enter>",    spawn $ pianobarCmd "start")
+        , ("M-<KP_Delete>",   spawn $ pianobarCmd "q")
         , ("M-<KP_Insert>",   spawn $ pianobarCmd "p") -- keypad 0 = pause
         , ("M-<KP_Right>",    spawn $ pianobarCmd "n") -- keypad 6 = next
         , ("M-<KP_Up>",       spawn $ pianobarCmd "+") -- keypad 8 = thumbs up
