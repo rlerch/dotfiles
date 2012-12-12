@@ -63,12 +63,17 @@ main = do
     xmprocLeft <- spawnPipe "xmobar --screen=0"
     xmprocRight <- spawnPipe "xmobar --screen=1"
     xmonad $ defaultConfig
-        { workspaces = myWorkspaces
-        , manageHook = manageDocks <+> manageHook defaultConfig
+        { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = layout
-        , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft) >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
         , focusFollowsMouse = False
         , startupHook = myStartupHook
+
+        -- BEGIN work-branch-specific config
+        , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft)
+                 >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
+        , workspaces = myWorkspaces
+        -- END work-branch-specific config
+
         }
         `additionalKeysP`
         [ ("M-S-s", spawn "gksudo shutdown -P now")
