@@ -39,14 +39,14 @@ layout = avoidStruts
         tallLayout = Tall 1 (3/100) (1/2)
         fullLayout = noBorders $ fullscreenFull Full
 
-myWorkspaces = [ "1:chrome-work"
-               , "2:chrome-home"
-               , "3:chrome-test"
-               , "4:"
-               , "5:vm-shell"
-               , "6:vm-vim"
-               , "7:"
-               , "8:pianobar"
+myWorkspaces = [ "1:chrome(work)"
+               , "2:chrome(home)"
+               , "3:planning"
+               , "4:test space"
+               , "5:"
+               , "6:"
+               , "7:vmdev"
+               , "8:vim"
                , "9:dotfiles"
                ]
 
