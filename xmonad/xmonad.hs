@@ -39,8 +39,20 @@ layout = avoidStruts
         tallLayout = Tall 1 (3/100) (1/2)
         fullLayout = noBorders $ fullscreenFull Full
 
+myWorkspaces = [ "1:chrome-work"
+               , "2:chrome-home"
+               , "3:chrome-test"
+               , "4:"
+               , "5:vm-shell"
+               , "6:vm-vim"
+               , "7:"
+               , "8:pianobar"
+               , "9:dotfiles"
+               ]
+
 myStartupHook = do
-    spawnOn "1" "chromium-browser"
+    spawnOn (myWorkspaces!!0) "chromium-browser --profile-directory='Profile 1'"
+    spawnOn (myWorkspaces!!1) "chromium-browser --profile-directory='Default'"
 
 pianobarCmd :: String -> String
 pianobarCmd cmd = "pianobar-ctl '" ++ cmd ++ "'"
@@ -51,16 +63,7 @@ main = do
     xmprocLeft <- spawnPipe "xmobar --screen=0"
     xmprocRight <- spawnPipe "xmobar --screen=1"
     xmonad $ defaultConfig
-        { workspaces = [ "1:chrome-work"
-                       , "2:chrome-home"
-                       , "3:chrome-test"
-                       , "4:"
-                       , "5:vm-shell"
-                       , "6:vm-vim"
-                       , "7:"
-                       , "8:pianobar"
-                       , "9:dotfiles"
-                       ]
+        { workspaces = myWorkspaces
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = layout
         , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft) >> (dynamicLogWithPP $ xmobarPPOptions xmprocRight)
