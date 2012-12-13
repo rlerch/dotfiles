@@ -50,10 +50,6 @@ myWorkspaces = [ "1:chrome(work)"
                , "9:dotfiles"
                ]
 
-myStartupHook = do
-    spawnOn (myWorkspaces!!0) "chromium-browser --profile-directory='Profile 1'"
-    spawnOn (myWorkspaces!!1) "chromium-browser --profile-directory='Default'"
-
 pianobarCmd :: String -> String
 pianobarCmd cmd = "pianobar-ctl '" ++ cmd ++ "'"
 
@@ -66,7 +62,6 @@ main = do
         { manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = layout
         , focusFollowsMouse = False
-        , startupHook = myStartupHook
 
         -- BEGIN work-branch-specific config
         , logHook = (dynamicLogWithPP $ xmobarPPOptions xmprocLeft)
