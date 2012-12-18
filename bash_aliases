@@ -61,3 +61,7 @@ function mkcd() {
 
 # work commands
 alias unit="phpunit --bootstrap=test/bootstrap.php"
+m () {
+    db=${1:-rjmadmin}
+    sudo mysql $db
+}
