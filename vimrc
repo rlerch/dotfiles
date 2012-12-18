@@ -184,7 +184,6 @@ nnoremap <F4> :A<CR>
 " NERDTree settings and mappings
 let NERDTreeIgnore=['\.swp$', '\.orig$', '\.pyc$', '\.class$', '__pycache__',
                 \   '\.swo$']
-let NERDTreeChDirMode=2 " set the CWD whenever NERDTree root changes
 let NERDTreeShowHidden=1 " show hidden files
 " mapping to open NERDTree
 nnoremap <F3> :NERDTreeToggle<CR>
@@ -198,7 +197,6 @@ let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<S-C-Space>'
 " don't map <CR> as it's causing conflicts with delimitMate's expand CR
 let g:SuperTabCrMapping = 0
-au FileType php let b:delimitMate_eol_marker = ";"
 
 " OmniCppComplete settings ---------------------------------------------------
 let OmniCpp_MayCompleteDot = 1 " autocomplete after .
