@@ -29,15 +29,17 @@ xmobarPPOptions handle = xmobarPP { ppOutput = hPutStrLn handle
                                   , ppHiddenNoWindows = xmobarColor "#65BBF7" ""
                                   }
 
-layout = avoidStruts
-    (   tallLayout
-    ||| Mirror (tallLayout)
-    ||| renamed [Replace "Maximized"] Full
-    )
-    ||| fullLayout
-    where
-        tallLayout = Tall 1 (3/100) (1/2)
-        fullLayout = noBorders $ fullscreenFull Full
+tallLayout = Tall 1 (3/100) (1/2)
+
+tallNoStruts = avoidStruts $ tallLayout
+tallMirrorNoStruts = avoidStruts $ Mirror tallLayout
+maximized = avoidStruts $ renamed [Replace "Maximized"] Full
+fullscreen = noBorders $ fullscreenFull Full
+
+myLayoutHook = tallNoStruts
+           ||| tallMirrorNoStruts
+           ||| maximized
+           ||| fullscreen
 
 myWorkspaces = [ "1:chrome(work)"
                , "2:chrome(home)"
@@ -60,7 +62,7 @@ main = do
     xmprocRight <- spawnPipe "xmobar --screen=1"
     xmonad $ defaultConfig
         { manageHook = manageDocks <+> manageHook defaultConfig
-        , layoutHook = layout
+        , layoutHook = myLayoutHook
         , focusFollowsMouse = False
 
         -- BEGIN work-branch-specific config
