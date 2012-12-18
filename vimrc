@@ -197,7 +197,6 @@ let g:SuperTabMappingForward = '<C-Space>'
 let g:SuperTabMappingBackward = '<S-C-Space>'
 " don't map <CR> as it's causing conflicts with delimitMate's expand CR
 let g:SuperTabCrMapping = 0
-au FileType php let b:delimitMate_eol_marker = ";"
 
 " OmniCppComplete settings ---------------------------------------------------
 let OmniCpp_MayCompleteDot = 1 " autocomplete after .
