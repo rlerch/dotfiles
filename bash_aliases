@@ -37,6 +37,9 @@ alias dc="echo \"dc? I think you meant cd.  Here, let me take care of that for y
 Oh I'm wrong?  Just \\\"cd -\\\" and use the real dc (/usr/bin/dc).\" ; cd"
 alias cd..="echo \"I think you meant 'cd ..'.  Here, let me take care of that for you.\"; cd .."
 
+# http://www.centerkey.com/tree/
+alias ls-dirs="ls -R | grep ":$" | sed -e 's/:$//' -e 's/[^-][^\/]*\//--/g' -e 's/^/   /' -e 's/-/|/'"
+
 # work commands
 alias unit="phpunit --bootstrap=test/bootstrap.php"
 m() {
