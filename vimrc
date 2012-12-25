@@ -47,7 +47,6 @@ set rnu " shows relative line numbers
 set bs=2 " needed on Windows for backspace to work properly
 
 " tab settings -------------------------------------------------------------->
-" RJMetrics uses tabs, not spaces
 set autoindent " Uses indent from current line as indent for new line
 " set expandtab " Inserts spaces instead of actual tabs
 set shiftwidth=4 " The number of columns to use when auto-indenting lines
@@ -122,10 +121,6 @@ autocmd BufEnter * set list
 " au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " set completeopt=menu,menuone,longest,preview
 set complete-=t,i
-
-" other stuff -----------------------------------------------------------------
-" From http://stackoverflow.com/questions/235439/vim-80-column-layout-concerns/235970#235970
-set colorcolumn=110
 
 " set cursorline
 " highlight CursorLine guibg=#FFE0F7
