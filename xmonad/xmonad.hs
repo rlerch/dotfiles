@@ -16,6 +16,7 @@ import XMonad.Layout.Fullscreen
 import XMonad.Layout.NoBorders
 import XMonad.Layout.Renamed
 import XMonad.Actions.SpawnOn(spawnOn)
+import qualified XMonad.StackSet as W
 import System.IO
 
 yellow = xmobarColor "#F7F383" ""
@@ -47,9 +48,9 @@ myWorkspaces = [ "1:chrome(work)"
                , "4:test space"
                , "5:"
                , "6:"
-               , "7:vmdev"
-               , "8:vim"
-               , "9:dotfiles"
+               , "7:local shells"
+               , "8:VM shells"
+               , "9:vim"
                ]
 
 pianobarCmd :: String -> String
