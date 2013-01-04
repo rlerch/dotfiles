@@ -121,6 +121,10 @@ set complete-=t,i
 
 " general key mappings --------------------------------------------------------
 
+" Open vimrc / source it
+nnoremap <Leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <Leader>sv :source $MYVIMRC<cr>
+
 " Change 'Y' to copy to end of line to be similar to D and C
 nnoremap Y y$
 
@@ -146,6 +150,13 @@ map <C-c> <Esc>
 
 " Remove trailing whitespace
 nmap <Leader>w :%s/\s\+$//<CR>
+
+" A bit tricky to explain: will put you insert mode on the next line (like
+" doing just 'o', but will also put an extra blank line below this new line.
+nnoremap <Leader>o o<esc>O
+
+" Search for the word under the cursor, but stay on the current instance of it
+nnoremap <Leader>n *N
 
 " -----------------------------------------------------------------------------
 " Plugin settings and mappings
@@ -189,7 +200,7 @@ imap <Tab> <Plug>delimitMateS-Tab
 imap <S-Tab> <Plug>delimitMateJumpMany
 
 " ctrlp ----------------------------------------------------------------------
-let g:ctrlp_cmd = 'CtrlPMRU'
+let g:ctrlp_cmd = 'CtrlPLastMode'
 let g:ctrlp_custom_ignore = {
     \ 'dir': '\.git$\|\.hg$\|build$',
     \ 'file': '\.swp$',
