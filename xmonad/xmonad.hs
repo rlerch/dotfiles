@@ -44,11 +44,11 @@ myLayoutHook = tallNoStruts
 
 myWorkspaces = [ "1:chrome(work)"
                , "2:chrome(home)"
-               , "3:planning"
-               , "4:test space"
-               , "5:"
+               , "3:test space"
+               , "4:"
+               , "5:local shells"
                , "6:"
-               , "7:local shells"
+               , "7:"
                , "8:VM shells"
                , "9:vim"
                ]
