@@ -1,4 +1,4 @@
-# Buck's dot-files
+# Lerch's dot-files
 
 This repository contains all of my configuration files (most notably those for
 Vim). You may notice that none of the files are actually "dot" files in that

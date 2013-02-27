@@ -1,6 +1,6 @@
 [user]
-name = Buck Ryan
-email = buck.ryan@gmail.com
+name = Ryan Lerch 
+email = lerchr@gmail.com
 
 [color]
 branch = auto
@@ -17,11 +17,6 @@ meta = yellow bold
 frag = magenta bold
 old = red
 new = cyan
-
-[color "status"]
-added = yellow
-changed = green
-untracked = cyan
 
 [alias]
 log1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)- %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative

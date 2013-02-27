@@ -5,7 +5,6 @@ import os
 import subprocess
 import sys
 import re
-import argparse
 
 class Color:
     # The following link is a pretty good resources for color values:
@@ -141,7 +140,7 @@ def add_hg_segment(powerline, cwd):
             extra += '+'
         if has_missing_files:
             extra += '!'
-        branch += (' ' + extra if extra != '' else '')
+        #branch += (' ' + extra if extra != '' else '')
     powerline.append(Segment(powerline, ' %s ' % branch, fg, bg))
     return True
 
@@ -246,19 +245,15 @@ def add_root_indicator(powerline, error):
     powerline.append(Segment(powerline, ' \\$ ', fg, bg))
 
 if __name__ == '__main__':
-    arg_parser = argparse.ArgumentParser()
-    arg_parser.add_argument('--cwd-only', action="store_true")
-    arg_parser.add_argument('prev_error', nargs='?', default=0)
-    args = arg_parser.parse_args()
 
     p = Powerline(mode='patched')
     cwd = os.getcwd()
     add_virtual_env_segment(p, cwd)
     #p.append(Segment(powerline, ' \\u ', 250, 240))
     #p.append(Segment(powerline, ' \\h ', 250, 238))
-    add_cwd_segment(p, cwd, 5, args.cwd_only)
+    add_cwd_segment(p, cwd, 5, False)
     add_repo_segment(p, cwd)
-    add_root_indicator(p, args.prev_error)
+    add_root_indicator(p, False)
     sys.stdout.write(p.draw())
 
 # vim: set expandtab:
