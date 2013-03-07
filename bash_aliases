@@ -7,6 +7,9 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias perg='egrep -Ir --exclude=tags --exclude-dir=.git --exclude-dir=build --exclude-dir=Framework'
 
+
+alias vi='vim'
+
 # ls aliases
 alias l='ls -CF' # show in columns and add file indicators
 alias ll='ls -la' # show all files in long format

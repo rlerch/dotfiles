@@ -48,7 +48,6 @@ set bs=2 " needed on Windows for backspace to work properly
 
 " tab settings -------------------------------------------------------------->
 set autoindent " Uses indent from current line as indent for new line
-set expandtab " Inserts spaces instead of actual tabs
 set shiftwidth=4 " The number of columns to use when auto-indenting lines
 set tabstop=4 " Determines the number of columns to use when showing actual
               " tab characters
@@ -74,7 +73,6 @@ set smarttab " Uses the value of shiftwidth when inserting or deleting tabs
 
 " mapping to toggle spaces/tabs. This should work fine, but I haven't figured
 " out under what circumstances behaviors will be exactly the same.
-nmap <Leader>t :set expandtab!<CR>
 " <---------------------------------------------------------------------------
 
 set laststatus=2 " Ensures that if only 1 window is visible, the status bar will show

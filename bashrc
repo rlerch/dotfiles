@@ -8,7 +8,7 @@
 # For an explanation of any of the following options, see
 # http://wiki.bash-hackers.org/internals/shell_options
 
-shopt -s autocd
+#shopt -s autocd
 shopt -s checkwinsize
 shopt -s histappend
 shopt -s lithist
@@ -26,13 +26,15 @@ HISTFILESIZE=2000
 # Other options and configurations #
 ####################################
 
-_update_ps1() { export PS1="$(powerline-bash.py --cwd-only $?)"; }
-PROMPT_COMMAND="_update_ps1"
+source ~/bin/myprompt
+#_update_ps1() { export PS1="$(myprompt)"; }
+#PROMPT_COMMAND="_update_ps1"
+mp vms
 
 export EDITOR=vim
 
 # make less more friendly for non-text input files, see lesspipe(1)
-[ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
+# [ -x /usr/bin/lesspipe ] && eval "$(lesspipe)"
 
 [ -r ~/.dircolors ] && DIRCOLORS=~/.dircolors
 eval "$(dircolors -b $DIRCOLORS)"
